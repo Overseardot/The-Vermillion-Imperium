@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The-Vermillion-Imperium</title>
+    <style>
+        /* Base Reset & Colors */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0d0d0d;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Top Navigation */
+        nav {
+            background-color: #141414;
+            border-bottom: 3px solid #cc0000; /* Vermillion Red Accent */
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff3333;
+            letter-spacing: 1px;
+        }
+        .nav-links a {
+            margin-left: 20px;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #ff3333;
+        }
+
+        /* Hero Banner */
+        .hero {
+            text-align: center;
+            padding: 120px 20px;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop') center/cover;
+            border-bottom: 1px solid #222;
+        }
+        .hero h1 {
+            font-size: 42px;
+            color: #ffffff;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+        .hero p {
+            font-size: 16px;
+            color: #888888;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .cta-btn {
+            background-color: #cc0000;
+            color: #ffffff;
+            padding: 12px 35px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .cta-btn:hover {
+            background-color: #ff3333;
+            transform: scale(1.03);
+        }
+
+        /* Main Layout Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+        section {
+            margin-bottom: 60px;
+        }
+        h2 {
+            font-size: 24px;
+            color: #ffffff;
+            border-left: 4px solid #cc0000;
+            padding-left: 15px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        p.manifesto-text {
+            font-size: 17px;
+            color: #b0b0b0;
+        }
+
+        /* Hierarchy Layout Boxes */
+        .structure-box {
+            background-color: #141414;
+            border: 1px solid #222;
+            border-radius: 4px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        .structure-box h3 {
+            font-size: 18px;
+            color: #ff3333;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .structure-box p {
+            font-size: 15px;
+            color: #aaaaaa;
+        }
+
+        /* Enlistment Steps */
+        .pipeline {
+            list-style: none;
+        }
+        .pipeline li {
+            background-color: #141414;
+            margin-bottom: 12px;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 3px solid #cc0000;
+            font-size: 15px;
+        }
+        .pipeline strong {
+            color: #ff3333;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #080808;
+            color: #555;
+            font-size: 13px;
+            border-top: 1px solid #1a1a1a;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">The-Vermillion-Imperium</div>
+        <div class="nav-links">
+            <a href="#manifesto">Manifesto</a>
+            <a href="#command">Hierarchy</a>
+            <a href="#enlist">Enlist</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>The-Vermillion-Imperium</h1>
+        <p>Elite Roblox Tactical Warfare Syndicate</p>
+        <a href="#" target="_blank"><button class="cta-btn">REQUEST ACCESS</button></a>
+    </header>
+
+    <div class="container">
+        
+        <section id="manifesto">
+            <h2>The Manifesto</h2>
+            <p class="manifesto-text">The-Vermillion-Imperium is a highly disciplined combat faction uniting top-tier tactical gamers across the Roblox war community. We operate under a strict command chain to dominate competitive battle simulations and clan campaigns.</p>
+        </section>
+
+        <section id="command">
+            <h2>Faction Hierarchy</h2>
+            
+            <div class="structure-box">
+                <h3>High Command</h3>
+                <p>The administrative spine of the Imperium. Manages overall strategy, diplomatic affairs, war planning, and roster logistics.</p>
+            </div>
+
+            <div class="structure-box">
+                <h3>The Vanguard</h3>
+                <p>The operational front line. Vetted operators trained to deploy, breach enemy perimeters, and secure crucial map objectives.</p>
+            </div>
+
+            <div class="structure-box">
+                <h3>Logistics & Training</h3>
+                <p>The development branch. Tasked with refining recruit combat mechanics, coordinating scrimmages, and maintaining uniform compliance.</p>
+            </div>
+        </section>
+
+        <section id="enlist">
+            <h2>Enlistment Pipeline</h2>
+            <ul class="pipeline">
+                <li><strong>01 / Connection:</strong> Secure access to the primary communications link and submit an application.</li>
+                <li><strong>02 / Assessment:</strong> Pass the entry-level combat proficiency evaluation and uniform check.</li>
+                <li><strong>03 / Deployment:</strong> Earn active status and complete integration into official war rosters.</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 THE-VERMILLION-IMPERIUM. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+</body>
+</html>
