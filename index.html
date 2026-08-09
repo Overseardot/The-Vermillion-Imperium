@@ -5,6 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Vermillon Imperium — Recruitment</title>
+<meta name="description" content="Official Vermillon Imperium recruitment office. Join our community or apply as a coder or editor.">
+<meta name="author" content="Vermillon Imperium">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://overseardot.github.io/The-Vermillion-Imperium/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Vermillon Imperium — Recruitment">
+<meta property="og:description" content="Join the Vermillon Imperium. Members, coders, and editors wanted.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://overseardot.github.io/The-Vermillion-Imperium/">
+
+<!-- Basic structured data for search engines -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Vermillon Imperium",
+  "url": "https://overseardot.github.io/The-Vermillion-Imperium/",
+  "description": "Official Vermillon Imperium recruitment office and community portal."
+}
+</script>
 
 <style>
 * {
@@ -18,8 +39,6 @@ body {
     color: #f5f5f5;
     font-family: Arial, sans-serif;
 }
-
-/* HEADER */
 
 header {
     text-align: center;
@@ -43,13 +62,10 @@ header p {
     letter-spacing: 3px;
 }
 
-/* HERO */
-
 .hero {
     text-align: center;
     padding: 90px 20px;
-    background:
-        radial-gradient(circle, #4b080b 0%, #080808 65%);
+    background: radial-gradient(circle, #4b080b 0%, #080808 65%);
 }
 
 .hero h2 {
@@ -68,8 +84,6 @@ header p {
     color: #bbb;
     line-height: 1.7;
 }
-
-/* CONTENT */
 
 .container {
     max-width: 850px;
@@ -94,8 +108,6 @@ header p {
     margin-top: 10px;
 }
 
-/* FORM */
-
 .application {
     background: #101010;
     border: 1px solid #333;
@@ -107,7 +119,6 @@ label {
     display: block;
     margin-top: 22px;
     margin-bottom: 8px;
-
     color: #d4af37;
     font-family: Georgia, serif;
     text-transform: uppercase;
@@ -119,15 +130,11 @@ select,
 textarea {
     width: 100%;
     padding: 14px;
-
     background: #050505;
     border: 1px solid #333;
-
     color: white;
-
     font-family: Arial, sans-serif;
     font-size: 14px;
-
     outline: none;
 }
 
@@ -142,21 +149,15 @@ textarea {
     resize: vertical;
 }
 
-/* BUTTON */
-
 button {
     width: 100%;
     margin-top: 30px;
     padding: 16px;
-
     background: #a4161a;
     border: 1px solid #d4af37;
-
     color: white;
-
     font-weight: bold;
     letter-spacing: 2px;
-
     cursor: pointer;
     font-size: 14px;
 }
@@ -166,28 +167,20 @@ button:hover {
     color: #080808;
 }
 
-/* SUCCESS MESSAGE */
-
 #message {
     display: none;
     margin-top: 25px;
     padding: 18px;
-
     text-align: center;
-
     background: #102015;
     border: 1px solid #39734a;
-
     color: #8fd19e;
 }
-
-/* FOOTER */
 
 footer {
     text-align: center;
     padding: 30px;
     background: #050505;
-
     color: #666;
     font-size: 12px;
     letter-spacing: 2px;
@@ -197,10 +190,7 @@ footer span {
     color: #d4af37;
 }
 
-/* MOBILE */
-
 @media (max-width: 600px) {
-
     header h1 {
         font-size: 25px;
     }
@@ -219,193 +209,79 @@ footer span {
 <body>
 
 <header>
-
     <h1>Vermillon Imperium</h1>
-
-    <p>
-        OFFICIAL IMPERIAL RECRUITMENT OFFICE
-    </p>
-
+    <p>OFFICIAL IMPERIAL RECRUITMENT OFFICE</p>
 </header>
 
-
 <section class="hero">
-
-    <h2>
-        Join the <span>Imperium</span>
-    </h2>
-
+    <h2>Join the <span>Imperium</span></h2>
     <p>
         The Vermillon Imperium is seeking skilled and dedicated
         individuals to help build, improve, and shape our community.
     </p>
-
 </section>
 
-
 <div class="container">
-
     <div class="title">
-
         <h2>Imperial Enlistment</h2>
-
-        <p>
-            Submit your application for consideration.
-        </p>
-
+        <p>Submit your application for consideration.</p>
     </div>
 
-
     <div class="application">
-
-        <!-- GOOGLE APPS SCRIPT -->
-
         <form
             action="https://script.google.com/macros/s/AKfycbyFqg1J3tY2dGc2CXbXt7D2_CJY718Vg8JayJDaAIrDCQeUm8UlVHWj2zn1t6djCBSKLg/exec"
             method="POST"
             target="submitFrame"
             onsubmit="submitted()"
         >
+            <label>Discord Username</label>
+            <input type="text" name="discord" placeholder="Your Discord username" required>
 
-            <label>
-                Discord Username
-            </label>
+            <label>Position</label>
+            <select name="position" required>
+                <option value="">Select a position</option>
+                <option value="Member">General Member</option>
+                <option value="Coder">Coder</option>
+                <option value="Editor">Editor</option>
+            </select>
 
-            <input
-                type="text"
-                name="discord"
-                placeholder="Your Discord username"
-                required
-            >
+            <label>Skills</label>
+            <textarea name="skills" placeholder="What skills do you have?" required></textarea>
 
+            <label>Experience</label>
+            <textarea name="experience" placeholder="Tell us about your previous experience."></textarea>
 
-            <label>
-                Position
-            </label>
+            <label>Portfolio / GitHub</label>
+            <input type="url" name="portfolio" placeholder="https://github.com/username">
 
-         <label>
-    Position
-</label>
+            <label>Why do you want to join?</label>
+            <textarea name="reason" placeholder="Tell us why you want to contribute." required></textarea>
 
-<select name="position" required>
+            <label>Availability</label>
+            <input type="text" name="availability" placeholder="Example: Weekends / 2-3 hours daily">
 
-    <option value="">
-        Select a position
-    </option>
-
-    <option value="Member">
-        General Member
-    </option>
-
-    <option value="Coder">
-        Coder
-    </option>
-
-    <option value="Editor">
-        Editor
-    </option>
-
-</select>
-
-            <label>
-                Skills
-            </label>
-
-            <textarea
-                name="skills"
-                placeholder="What skills do you have?"
-                required
-            ></textarea>
-
-
-            <label>
-                Experience
-            </label>
-
-            <textarea
-                name="experience"
-                placeholder="Tell us about your previous experience."
-            ></textarea>
-
-
-            <label>
-                Portfolio / GitHub
-            </label>
-
-            <input
-                type="url"
-                name="portfolio"
-                placeholder="https://github.com/username"
-            >
-
-
-            <label>
-                Why do you want to join?
-            </label>
-
-            <textarea
-                name="reason"
-                placeholder="Tell us why you want to contribute."
-                required
-            ></textarea>
-
-
-            <label>
-                Availability
-            </label>
-
-            <input
-                type="text"
-                name="availability"
-                placeholder="Example: Weekends / 2-3 hours daily"
-            >
-
-
-            <button type="submit">
-                SUBMIT APPLICATION
-            </button>
-
+            <button type="submit">SUBMIT APPLICATION</button>
         </form>
 
-
-        <!-- Hidden response window -->
-
-        <iframe
-            name="submitFrame"
-            style="display:none;"
-        ></iframe>
-
+        <iframe name="submitFrame" style="display:none;"></iframe>
 
         <div id="message">
-            APPLICATION TRANSMITTED.
-            <br>
+            APPLICATION TRANSMITTED.<br>
             Imperial recruitment will review your submission.
         </div>
-
     </div>
-
 </div>
 
-
 <footer>
-
     VERMILLON IMPERIUM
-
     <br><br>
-
     <span>SERVE · CREATE · ADVANCE</span>
-
 </footer>
 
-
 <script>
-
 function submitted() {
-
     document.getElementById("message").style.display = "block";
-
 }
-
 </script>
 
 </body>
