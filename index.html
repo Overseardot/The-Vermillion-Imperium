@@ -5,18 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Vermillon Imperium — Recruitment</title>
-<meta name="description" content="Official Vermillon Imperium recruitment office. Join our community or apply as a coder or editor.">
+<meta name="description" content="Official Vermillon Imperium recruitment office. Join our Discord community or apply as a member, coder, or editor.">
 <meta name="author" content="Vermillon Imperium">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://overseardot.github.io/The-Vermillion-Imperium/">
 
-<!-- Open Graph -->
 <meta property="og:title" content="Vermillon Imperium — Recruitment">
 <meta property="og:description" content="Join the Vermillon Imperium. Members, coders, and editors wanted.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://overseardot.github.io/The-Vermillion-Imperium/">
 
-<!-- Basic structured data for search engines -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -28,25 +26,13 @@
 </script>
 
 <style>
-  /* Anti-spam honeypot */
-
-.anti-spam {
-    position: absolute;
-    left: -9999px;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-}
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
     background: #080808;
     color: #f5f5f5;
     font-family: Arial, sans-serif;
+    line-height: 1.6;
 }
 
 header {
@@ -73,7 +59,7 @@ header p {
 
 .hero {
     text-align: center;
-    padding: 90px 20px;
+    padding: 90px 20px 75px;
     background: radial-gradient(circle, #4b080b 0%, #080808 65%);
 }
 
@@ -81,29 +67,81 @@ header p {
     font-family: Georgia, serif;
     font-size: 58px;
     text-transform: uppercase;
+    line-height: 1.1;
 }
 
-.hero h2 span {
-    color: #a4161a;
-}
+.hero h2 span { color: #a4161a; }
 
 .hero p {
-    max-width: 650px;
+    max-width: 700px;
     margin: 25px auto;
     color: #bbb;
-    line-height: 1.7;
+}
+
+.discord-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 16px 32px;
+    background: #a4161a;
+    border: 1px solid #d4af37;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: .2s;
+}
+
+.discord-button:hover {
+    background: #d4af37;
+    color: #080808;
 }
 
 .container {
-    max-width: 850px;
+    max-width: 900px;
     margin: auto;
-    padding: 70px 20px;
+    padding: 65px 20px;
 }
 
-.title {
-    text-align: center;
-    margin-bottom: 40px;
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 65px;
 }
+
+.info-card {
+    background: #0d0d0d;
+    border: 1px solid #292929;
+    border-top: 3px solid #a4161a;
+    padding: 28px;
+}
+
+.info-card h3 {
+    color: #d4af37;
+    font-family: Georgia, serif;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.info-card p { color: #aaa; font-size: 14px; }
+
+.notice {
+    background: #050505;
+    border-left: 4px solid #d4af37;
+    padding: 25px;
+    margin-bottom: 50px;
+}
+
+.notice strong {
+    color: #d4af37;
+    display: block;
+    margin-bottom: 7px;
+    text-transform: uppercase;
+}
+
+.title { text-align: center; margin-bottom: 40px; }
 
 .title h2 {
     color: #d4af37;
@@ -112,10 +150,7 @@ header p {
     text-transform: uppercase;
 }
 
-.title p {
-    color: #888;
-    margin-top: 10px;
-}
+.title p { color: #888; margin-top: 10px; }
 
 .application {
     background: #101010;
@@ -134,9 +169,7 @@ label {
     letter-spacing: 1px;
 }
 
-input,
-select,
-textarea {
+input, select, textarea {
     width: 100%;
     padding: 14px;
     background: #050505;
@@ -147,16 +180,8 @@ textarea {
     outline: none;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: #a4161a;
-}
-
-textarea {
-    min-height: 120px;
-    resize: vertical;
-}
+input:focus, select:focus, textarea:focus { border-color: #a4161a; }
+textarea { min-height: 120px; resize: vertical; }
 
 button {
     width: 100%;
@@ -171,10 +196,7 @@ button {
     font-size: 14px;
 }
 
-button:hover {
-    background: #d4af37;
-    color: #080808;
-}
+button:hover { background: #d4af37; color: #080808; }
 
 #message {
     display: none;
@@ -186,6 +208,14 @@ button:hover {
     color: #8fd19e;
 }
 
+.anti-spam {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
 footer {
     text-align: center;
     padding: 30px;
@@ -195,28 +225,18 @@ footer {
     letter-spacing: 2px;
 }
 
-footer span {
-    color: #d4af37;
-}
+footer span { color: #d4af37; }
 
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 25px;
-    }
-
-    .hero h2 {
-        font-size: 40px;
-    }
-
-    .application {
-        padding: 25px;
-    }
+@media (max-width: 700px) {
+    .info-grid { grid-template-columns: 1fr; }
+    header h1 { font-size: 25px; }
+    .hero h2 { font-size: 40px; }
+    .application { padding: 25px; }
 }
 </style>
 </head>
 
 <body>
-
 <header>
     <h1>Vermillon Imperium</h1>
     <p>OFFICIAL IMPERIAL RECRUITMENT OFFICE</p>
@@ -225,12 +245,49 @@ footer span {
 <section class="hero">
     <h2>Join the <span>Imperium</span></h2>
     <p>
-        The Vermillon Imperium is seeking skilled and dedicated
-        individuals to help build, improve, and shape our community.
+        The Vermillon Imperium is seeking dedicated individuals to join the community
+        and skilled contributors to help build, improve, and shape it.
     </p>
+    <a class="discord-button" href="https://discord.gg/hdgY3kJBuJ" target="_blank" rel="noopener noreferrer">
+        Enter the Imperium — Discord
+    </a>
 </section>
 
 <div class="container">
+
+    <div class="info-grid">
+        <div class="info-card">
+            <h3>Join as a Member</h3>
+            <p>
+                Enter the community, meet other members, participate in events,
+                and become part of the Vermillon Imperium without taking on a staff role.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h3>Serve as a Coder</h3>
+            <p>
+                Help develop websites, tools, bots, systems, and other technical
+                projects that support the Imperium.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h3>Serve as an Editor</h3>
+            <p>
+                Help improve written material, announcements, documents, presentations,
+                and other creative content.
+            </p>
+        </div>
+    </div>
+
+    <div class="notice">
+        <strong>Imperial Notice</strong>
+        Membership is open to anyone interested in joining the community.
+        Coder and Editor applications are intended for applicants who want to contribute
+        their skills to the development and presentation of the Imperium.
+    </div>
+
     <div class="title">
         <h2>Imperial Enlistment</h2>
         <p>Submit your application for consideration.</p>
@@ -260,7 +317,7 @@ footer span {
             <label>Experience</label>
             <textarea name="experience" placeholder="Tell us about your previous experience."></textarea>
 
-            <label>Portfolio / GitHub</label>
+            <label>Portfolio / GitHub <span style="color:#777;font-family:Arial;font-size:11px;text-transform:none;letter-spacing:0;">(Optional)</span></label>
             <input type="url" name="portfolio" placeholder="https://github.com/username">
 
             <label>Why do you want to join?</label>
@@ -269,17 +326,12 @@ footer span {
             <label>Availability</label>
             <input type="text" name="availability" placeholder="Example: Weekends / 2-3 hours daily">
 
+            <div class="anti-spam">
+                <label>Leave this field empty</label>
+                <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
             <button type="submit">SUBMIT APPLICATION</button>
-          <!-- Anti-spam honeypot -->
-<div class="anti-spam">
-    <label>Leave this field empty</label>
-    <input
-        type="text"
-        name="website"
-        tabindex="-1"
-        autocomplete="off"
-    >
-</div>
         </form>
 
         <iframe name="submitFrame" style="display:none;"></iframe>
