@@ -1,105 +1,374 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Vermilion Imperium - Enlistment</title>
-    <style>
-        body {
-            background-color: #0d0d0d;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vermillon Imperium — Recruitment</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background: #080808;
+        color: #f5f5f5;
+        font-family: Arial, sans-serif;
+    }
+
+    /* HEADER */
+
+    header {
+        background: #0d0d0d;
+        border-bottom: 2px solid #a4161a;
+        padding: 25px;
+        text-align: center;
+    }
+
+    header h1 {
+        color: #d4af37;
+        font-family: Georgia, serif;
+        font-size: 36px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+    }
+
+    header p {
+        color: #a4161a;
+        margin-top: 8px;
+        letter-spacing: 3px;
+        font-size: 12px;
+    }
+
+    /* HERO */
+
+    .hero {
+        text-align: center;
+        padding: 100px 20px;
+        background:
+            linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.95)),
+            radial-gradient(circle, #4d080b, #080808 65%);
+        border-bottom: 1px solid #4d4d4d;
+    }
+
+    .hero h2 {
+        font-family: Georgia, serif;
+        font-size: 60px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+    }
+
+    .hero h2 span {
+        color: #a4161a;
+    }
+
+    .hero p {
+        max-width: 650px;
+        margin: 25px auto;
+        color: #cfcfcf;
+        line-height: 1.7;
+    }
+
+    /* BUTTON */
+
+    .button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 15px 35px;
+
+        background: #a4161a;
+        border: 1px solid #d4af37;
+
+        color: white;
+        text-decoration: none;
+
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+
+        transition: .2s;
+    }
+
+    .button:hover {
+        background: #d4af37;
+        color: #080808;
+    }
+
+    /* CONTENT */
+
+    .content {
+        max-width: 1000px;
+        margin: auto;
+        padding: 80px 25px;
+    }
+
+    .title {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+
+    .title h2 {
+        color: #d4af37;
+        font-family: Georgia, serif;
+        font-size: 32px;
+        text-transform: uppercase;
+    }
+
+    .title p {
+        color: #999;
+        margin-top: 10px;
+    }
+
+    /* RECRUITMENT CARDS */
+
+    .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .card {
+        background: #111;
+        border: 1px solid #333;
+        border-top: 3px solid #a4161a;
+        padding: 30px;
+    }
+
+    .card h3 {
+        color: #d4af37;
+        font-family: Georgia, serif;
+        font-size: 25px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+    }
+
+    .card p {
+        color: #bbb;
+        line-height: 1.7;
+        margin-bottom: 15px;
+    }
+
+    .card ul {
+        padding-left: 20px;
+        color: #ddd;
+        line-height: 2;
+    }
+
+    /* REQUIREMENTS */
+
+    .requirements {
+        margin-top: 60px;
+        background: #0d0d0d;
+        border: 1px solid #333;
+        padding: 35px;
+        text-align: center;
+    }
+
+    .requirements h2 {
+        color: #d4af37;
+        font-family: Georgia, serif;
+        margin-bottom: 20px;
+    }
+
+    .requirements p {
+        color: #aaa;
+        line-height: 1.8;
+    }
+
+    /* FINAL CTA */
+
+    .final {
+        text-align: center;
+        padding: 80px 20px;
+        background: #100607;
+        border-top: 1px solid #a4161a;
+        border-bottom: 1px solid #a4161a;
+    }
+
+    .final h2 {
+        font-family: Georgia, serif;
+        font-size: 40px;
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+    .final h2 span {
+        color: #a4161a;
+    }
+
+    .final p {
+        color: #aaa;
+        margin-top: 15px;
+    }
+
+    /* FOOTER */
+
+    footer {
+        text-align: center;
+        padding: 25px;
+        background: #050505;
+        color: #666;
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    footer span {
+        color: #d4af37;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+        .hero h2 {
+            font-size: 40px;
         }
-        .container {
-            background-color: #1a1a1a;
-            border: 2px solid #b30000;
-            border-radius: 8px;
-            padding: 30px;
-            max-width: 400px;
-            width: 100%;
-            box-shadow: 0 0 15px rgba(179, 0, 0, 0.4);
-            text-align: center;
+
+        .cards {
+            grid-template-columns: 1fr;
         }
-        h1 {
-            color: #b30000;
-            margin-bottom: 5px;
-            letter-spacing: 2px;
+
+        header h1 {
+            font-size: 25px;
         }
-        p {
-            color: #d4af37;
-            font-size: 0.9em;
-            margin-top: 0;
-            margin-bottom: 25px;
-        }
-        .form-group {
-            text-align: left;
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            color: #ffffff;
-            margin-bottom: 5px;
-            font-size: 0.9em;
-        }
-        input, select {
-            width: 100%;
-            padding: 10px;
-            background-color: #0d0d0d;
-            border: 1px solid #d4af37;
-            color: #ffffff;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        input:focus, select:focus {
-            outline: none;
-            border-color: #b30000;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #b30000;
-            color: #ffffff;
-            border: none;
-            border-radius: 4px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background-color 0.2s;
-        }
-        button:hover {
-            background-color: #e60000;
-        }
-    </style>
+    }
+</style>
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>VERMILION IMPERIUM</h1>
-        <p>JOIN THE DISCORD</p>
-        
-        <form action="#" method="POST">
-            <div class="form-group">
-                <label for="username">Discord Username</label>
-                <input type="text" id="username" name="username" placeholder="e.g. user#0000" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="age">Are you at least 13 years old?</label>
-                <select id="age" name="age" required>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                </select>
-            </div>
+<header>
+    <h1>Vermillon Imperium</h1>
+    <p>OFFICIAL IMPERIAL RECRUITMENT OFFICE</p>
+</header>
 
-            <button type="submit">SUBMIT ENLISTMENT</button>
-        </form>
+
+<section class="hero">
+
+    <h2>
+        Join the <span>Imperium</span>
+    </h2>
+
+    <p>
+        The Vermillon Imperium is seeking skilled and dedicated
+        individuals to help build, improve, and shape our community.
+    </p>
+
+    <a href="https://discord.gg/YOURINVITE"
+       class="button"
+       target="_blank">
+        Enlist Now
+    </a>
+
+</section>
+
+
+<section class="content">
+
+    <div class="title">
+        <h2>Personnel Wanted</h2>
+
+        <p>
+            Two fields of service are currently open.
+        </p>
     </div>
+
+
+    <div class="cards">
+
+        <!-- CODERS -->
+
+        <div class="card">
+
+            <h3>Coders</h3>
+
+            <p>
+                Help develop the systems and technology
+                behind the Vermillon Imperium.
+            </p>
+
+            <ul>
+                <li>HTML / CSS</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>Discord Bots</li>
+                <li>Web Development</li>
+                <li>General Programming</li>
+            </ul>
+
+        </div>
+
+
+        <!-- EDITORS -->
+
+        <div class="card">
+
+            <h3>Editors</h3>
+
+            <p>
+                Help create the visuals and media that
+                represent the Vermillon Imperium.
+            </p>
+
+            <ul>
+                <li>Video Editing</li>
+                <li>Image Editing</li>
+                <li>Graphic Design</li>
+                <li>Discord Graphics</li>
+                <li>Promotional Material</li>
+                <li>Document Design</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <div class="requirements">
+
+        <h2>What We Seek</h2>
+
+        <p>
+            Dedication. Creativity. Reliability.
+            <br>
+            Experience is welcome, but willingness to learn
+            and contribute matters most.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="final">
+
+    <h2>
+        Your Skills Have a <span>Place Here.</span>
+    </h2>
+
+    <p>
+        Help us build the future of the Vermillon Imperium.
+    </p>
+
+    <a href="https://discord.gg/YOURINVITE"
+       class="button"
+       target="_blank">
+        Join the Discord
+    </a>
+
+</section>
+
+
+<footer>
+
+    VERMILLON IMPERIUM
+    <br><br>
+    <span>SERVE · CREATE · ADVANCE</span>
+
+</footer>
 
 </body>
 </html>
