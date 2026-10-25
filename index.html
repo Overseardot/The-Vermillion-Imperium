@@ -75,7 +75,9 @@ footer{text-align:center;padding:38px;background:#030303;border-top:1px solid #1
 <label>Position</label><select id="position" name="position" required><option value="">Select a position</option><option value="Member">General Member</option><option value="Coder">Coder</option><option value="Editor">Editor</option></select>
 <div class="conditional contributor-fields"><label>Skills <span class="hint">Required for contributors</span></label><div class="field"><textarea name="skills" maxlength="3000" placeholder="What skills do you have?"></textarea><span class="counter">0 / 3000</span></div></div>
 <div class="conditional contributor-fields"><label>Experience</label><div class="field"><textarea name="experience" maxlength="3000" placeholder="Tell us about your previous experience."></textarea><span class="counter">0 / 3000</span></div></div>
-<label>Portfolio / GitHub <span class="hint">(Optional)</span></label><input type="url" name="portfolio" maxlength="500" placeholder="https://github.com/username">
+<label>Portfolio / GitHub <span class="hint">(Optional — GitHub links only)</span></label>
+<input type="url" id="portfolio" name="portfolio" maxlength="500" placeholder="https://github.com/username" aria-describedby="portfolioHelp">
+<div id="portfolioHelp" class="form-note" style="text-align:left;margin-top:7px">Use a GitHub profile URL or repository URL only.</div>
 <label>Why do you want to join?</label><div class="field"><textarea name="reason" maxlength="3000" placeholder="Tell us why you want to contribute." required></textarea><span class="counter">0 / 3000</span></div>
 <label>Availability</label><input type="text" name="availability" maxlength="500" placeholder="Example: Weekends / 2-3 hours daily">
 <div class="anti-spam"><label>Leave this field empty</label><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
@@ -96,6 +98,34 @@ const progressBar=document.getElementById('progressBar');
 const progressText=document.getElementById('progressText');
 const contributorFields=[...document.querySelectorAll('.contributor-fields')];
 const skills=form.elements.skills; const experience=form.elements.experience;
+const portfolio=document.getElementById('portfolio');
+
+function validGitHubPortfolio(value){
+ if(!value.trim()) return true; // Optional field.
+ try{
+  const url=new URL(value.trim());
+  const host=url.hostname.toLowerCase();
+  if(url.protocol!=='https:'||(host!=='github.com'&&host!=='www.github.com')||url.username||url.password||url.port||url.search||url.hash) return false;
+  const parts=url.pathname.split('/').filter(Boolean);
+  // Accept only a profile (one segment) or repository (two segments),
+  // not arbitrary GitHub pages such as login, settings, or topics.
+  if(parts.length<1||parts.length>2) return false;
+  if(parts.some(part=>! /^[A-Za-z0-9_.-]+$/.test(part)||part==='.'||part==='..')) return false;
+  const reserved=new Set(['login','logout','signup','join','settings','features','topics','collections','marketplace','orgs','organizations','enterprise','sponsors','about','pricing','security','site']);
+  if(reserved.has(parts[0].toLowerCase())) return false;
+  if(parts.length===2 && reserved.has(parts[1].toLowerCase())) return false;
+  return true;
+ }catch(_){return false;}
+}
+
+function validatePortfolio(){
+ const value=portfolio.value.trim();
+ const valid=validGitHubPortfolio(value);
+ portfolio.setCustomValidity(valid?'':'Enter a valid GitHub profile or repository URL, such as https://github.com/username or https://github.com/owner/repository.');
+ return valid;
+}
+
+portfolio.addEventListener('input',()=>{validatePortfolio();updateProgress()});
 function updateRoleFields(){
  const contributor=position.value==='Coder'||position.value==='Editor';
  contributorFields.forEach(x=>x.classList.toggle('visible',contributor));
@@ -140,6 +170,12 @@ window.addEventListener('message', function(event) {
 });
 
 form.addEventListener('submit', function(e) {
+  if (!validatePortfolio()) {
+    e.preventDefault();
+    portfolio.reportValidity();
+    portfolio.focus();
+    return;
+  }
   if (form.elements.website.value.trim() !== '') {
     e.preventDefault();
     return;
