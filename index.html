@@ -114,10 +114,44 @@ form.querySelectorAll('input,select,textarea').forEach(el=>{
  el.addEventListener('input',()=>{updateProgress();const counter=el.parentElement.querySelector('.counter');if(counter)counter.textContent=el.value.length+' / '+el.maxLength});
  el.addEventListener('change',updateProgress);
 });
-form.addEventListener('submit',function(e){
- if(form.elements.website.value.trim()!==''){e.preventDefault();return}
- button.disabled=true;button.textContent='TRANSMITTING REGISTRATION...';
- setTimeout(function(){form.style.display='none';message.style.display='block';message.scrollIntoView({behavior:'smooth',block:'center'});},1400);
+const submitFrame = document.querySelector('iframe[name="submitFrame"]');
+let submissionPending = false;
+
+window.addEventListener('message', function(event) {
+  if (event.source !== submitFrame.contentWindow) return;
+  if (!event.data || event.data.source !== 'tvi-registration') return;
+  if (!submissionPending) return;
+
+  submissionPending = false;
+  button.disabled = false;
+  button.textContent = 'SUBMIT REGISTRATION';
+
+  if (event.data.status === 'success') {
+    form.style.display = 'none';
+    message.style.display = 'block';
+    message.scrollIntoView({behavior:'smooth',block:'center'});
+  } else if (event.data.status === 'duplicate') {
+    alert('Please wait 10 minutes before submitting another application with this Discord username.');
+  } else if (event.data.status === 'rejected') {
+    alert('The application was rejected. Please check your details and try again.');
+  } else {
+    alert('Your application could not be saved. Please try again in a moment.');
+  }
+});
+
+form.addEventListener('submit', function(e) {
+  if (form.elements.website.value.trim() !== '') {
+    e.preventDefault();
+    return;
+  }
+  if (submissionPending) {
+    e.preventDefault();
+    return;
+  }
+
+  submissionPending = true;
+  button.disabled = true;
+  button.textContent = 'TRANSMITTING REGISTRATION...';
 });
 updateRoleFields();updateProgress();
 </script>
